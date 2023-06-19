@@ -18,6 +18,7 @@ DEFAULT_REFINE_PROMPT_TMPL = (
     "------------\n"
     "Given the new context, refine the original answer to better "
     "answer the question. "
+    "If the context has Traditional Chinese, translate the answer to Traditional Chinese."
     "If the context isn't useful, return the original answer."
 )
 DEFAULT_REFINE_PROMPT = PromptTemplate(
@@ -32,6 +33,7 @@ refine_template = (
     "------------\n"
     "Given the new context, refine the original answer to better "
     "answer the question. "
+    "If the context has Traditional Chinese, translate the answer to Traditional Chinese."
     "If the context isn't useful, return the original answer."
 )
 messages = [
@@ -53,6 +55,7 @@ DEFAULT_TEXT_QA_PROMPT_TMPL = (
     "\n---------------------\n"
     "Given the context information and not prior knowledge, "
     "answer the question: {question}\n"
+    "If the context has Traditional Chinese, translate the answer to Traditional Chinese."
 )
 DEFAULT_TEXT_QA_PROMPT = PromptTemplate(
     input_variables=["context_str", "question"], template=DEFAULT_TEXT_QA_PROMPT_TMPL
@@ -64,6 +67,7 @@ chat_qa_prompt_template = (
     "\n---------------------\n"
     "Given the context information and not prior knowledge, "
     "answer any questions"
+    "If the context has Traditional Chinese, translate the answer to Traditional Chinese."
 )
 messages = [
     SystemMessagePromptTemplate.from_template(chat_qa_prompt_template),

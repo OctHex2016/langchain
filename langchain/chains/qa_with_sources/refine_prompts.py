@@ -13,6 +13,7 @@ DEFAULT_REFINE_PROMPT_TMPL = (
     "answer the question. "
     "If you do update it, please update the sources as well. "
     "If the context isn't useful, return the original answer."
+    "If the context has Traditional Chinese, translate the answer to Traditional Chinese."
 )
 DEFAULT_REFINE_PROMPT = PromptTemplate(
     input_variables=["question", "existing_answer", "context_str"],
@@ -27,6 +28,7 @@ DEFAULT_TEXT_QA_PROMPT_TMPL = (
     "\n---------------------\n"
     "Given the context information and not prior knowledge, "
     "answer the question: {question}\n"
+    "If the context has Traditional Chinese, translate the answer to Traditional Chinese."
 )
 DEFAULT_TEXT_QA_PROMPT = PromptTemplate(
     input_variables=["context_str", "question"], template=DEFAULT_TEXT_QA_PROMPT_TMPL
